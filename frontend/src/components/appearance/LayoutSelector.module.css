@@ -1,0 +1,78 @@
+.section {
+  margin-bottom: 2rem;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.layoutCard {
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.layoutCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.layoutCard.selected {
+  border-color: #007bff;
+}
+
+.layoutPreview {
+  height: 150px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.layoutInfo h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.layoutInfo p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Layout preview styles */
+.layoutPreview[data-layout="list"] {
+  background-image: repeating-linear-gradient(
+    0deg,
+    #dee2e6 0px,
+    #dee2e6 2px,
+    transparent 2px,
+    transparent 40px
+  );
+}
+
+.layoutPreview[data-layout="grid"] {
+  background-image: repeating-linear-gradient(
+      0deg,
+      #dee2e6 0px,
+      #dee2e6 2px,
+      transparent 2px,
+      transparent 100px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      #dee2e6 0px,
+      #dee2e6 2px,
+      transparent 2px,
+      transparent 100px
+    );
+}
+
+.layoutPreview[data-layout="minimal"] {
+  background-image: radial-gradient(#dee2e6 2px, transparent 2px);
+  background-size: 40px 40px;
+}
