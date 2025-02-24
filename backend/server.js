@@ -48,7 +48,7 @@ app.get("/test", (req, res) => {
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(mongodb+srv://siddharthaballa123:siddhu@cluster0.rhyqm.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
