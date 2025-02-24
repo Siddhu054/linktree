@@ -46,6 +46,9 @@ app.get("/test", (req, res) => {
   res.json({ message: "Server is running" });
 });
 
+app.get("/", (req, res) => {
+  res.send("Server is running! Welcome to Linktree API.");
+});
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URI, {
