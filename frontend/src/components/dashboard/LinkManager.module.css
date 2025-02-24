@@ -1,0 +1,157 @@
+.linkManager {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.linkManager h2 {
+  margin-bottom: 1.5rem;
+  color: #1e293b;
+}
+
+.addLinkForm {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.addLinkForm input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.addLinkForm button {
+  padding: 0.75rem 1.5rem;
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addLinkForm button:hover {
+  background-color: #4f46e5;
+}
+
+.addLinkForm button:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.linkItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  cursor: move;
+}
+
+.linkInfo {
+  flex: 1;
+}
+
+.linkInfo h3 {
+  font-size: 1rem;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.linkInfo p {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.linkActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editButton,
+.deleteButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.editButton {
+  background-color: #0ea5e9;
+  color: white;
+}
+
+.editButton:hover {
+  background-color: #0284c7;
+}
+
+.deleteButton {
+  background-color: #ef4444;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: #dc2626;
+}
+
+.editForm {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.editForm input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.editForm button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.editForm button:first-of-type {
+  background-color: #10b981;
+  color: white;
+}
+
+.editForm button:last-of-type {
+  background-color: #6b7280;
+  color: white;
+}
+
+@media (max-width: 640px) {
+  .addLinkForm {
+    flex-direction: column;
+  }
+
+  .linkItem {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .linkActions {
+    justify-content: flex-end;
+  }
+}
