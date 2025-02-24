@@ -7,6 +7,9 @@ const User = require("../models/User");
 const auth = require("../middleware/auth");
 const validatePassword = require("../middleware/validatePassword");
 
+router.get("/", (req, res) => {
+  res.json({ message: "Auth API working" });
+});
 // Register route
 router.post(
   "/register",
