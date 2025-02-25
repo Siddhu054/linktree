@@ -1,18 +1,30 @@
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useContext, useState } from "react";
+import api from "../utils/api"; // Ensure API requests are configured correctly
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const register = async (formData) => {
+    try {
+      const response = await api.post("/auth/register", formData);
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        setUser(response.data.token);
+        return true;
+      }
+    } catch (error) {
+      console.error("Registration error:", error);
+      return false;
+    }
+  };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <AuthContext.Provider value={{ user, register }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-// Create and export the custom hook
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);
