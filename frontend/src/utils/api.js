@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://linktree-1-11lk.onrender.com/api",
+  baseURL: "https://linktree-4.onrender.com",
   headers: {
     "Content-Type": "application/json",
   },
