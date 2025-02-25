@@ -12,6 +12,8 @@ const Register = () => {
   });
   const [loading, setLoading] = useState(false);
   const { register } = useAuth();
+  console.log("register function:", register); // Debugging
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
