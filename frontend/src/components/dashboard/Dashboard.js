@@ -1,4 +1,3 @@
-import { FaUser } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
