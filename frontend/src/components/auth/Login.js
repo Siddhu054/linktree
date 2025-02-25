@@ -19,31 +19,33 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      const response = await api.post("/auth/login", formData);
+  try {
+    const response = await api.post("/auth/login", formData);
+    console.log("Login Response:", response.data);
 
-      if (response.data.token) {
-        const success = await login(response.data.token);
-        if (success) {
-          toast.success("Login successful!");
-          navigate("/dashboard");
-        } else {
-          throw new Error("Failed to load user profile");
-        }
+    if (response.data.token) {
+      localStorage.setItem("token", response.data.token); // ✅ Store token
+      const success = await login(response.data.token);
+      if (success) {
+        toast.success("Login successful!");
+        navigate("/dashboard");
       } else {
-        throw new Error("No token received");
+        throw new Error("Failed to load user profile");
       }
-    } catch (error) {
-      console.error("Login error:", error);
-      const message = error.response?.data?.message || "Login failed";
-      toast.error(message);
-    } finally {
-      setLoading(false);
+    } else {
+      throw new Error("No token received");
     }
-  };
+  } catch (error) {
+    console.error("Login error:", error.response?.data || error.message);
+    const message = error.response?.data?.message || "Login failed";
+    toast.error(message);
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className={styles.loginContainer}>
