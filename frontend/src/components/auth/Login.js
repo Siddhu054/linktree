@@ -23,13 +23,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://linktree-1-11lk.onrender.com/api/auth/login", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ email, password }),
-});
+      const response = await api.post("/auth/login", formData);
 
       if (response.data.token) {
         const success = await login(response.data.token);
