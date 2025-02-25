@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://linktree-1-1l1k.onrender.com/api/auth/login",
+  baseURL: "https://linktree-1-1l1k.onrender.com",
   headers: {
     "Content-Type": "application/json",
   },
