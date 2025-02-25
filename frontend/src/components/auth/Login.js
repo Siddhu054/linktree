@@ -24,11 +24,11 @@ const Login = () => {
 
   try {
     const response = await api.post("/auth/login", formData);
-    console.log("Login Response:", response.data);
+  
 
     if (response.data.token) {
       localStorage.setItem("token", response.data.token); // ✅ Store token
-      const success = await login(response.data.token);
+      
       if (success) {
         toast.success("Login successful!");
         navigate("/dashboard");
